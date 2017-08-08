@@ -15,7 +15,6 @@ public class App {
         Map<String, Object> model = new HashMap<>();
         ArrayList<Post> posts = Post.getAll();
         model.put("posts", posts);
-
         return new ModelAndView(model, "index.hbs");
     }, new HandlebarsTemplateEngine());
 
@@ -23,6 +22,7 @@ public class App {
         Map<String, Object> model = new HashMap<String, Object>();
         String content = request.queryParams("content");
         Post newPost = new Post(content);
+        model.put("post", newPost);
         return new ModelAndView(model, "success.hbs");
     }, new HandlebarsTemplateEngine());
 
