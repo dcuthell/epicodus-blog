@@ -39,6 +39,15 @@ public class App {
         model.put("post", foundPost); //add it to model for template to display
         return new ModelAndView(model, "post-detail.hbs"); //individual post page.
     }, new HandlebarsTemplateEngine());
+
+        //show all post details on one page
+    get("/posts", (req, res) -> {
+        Map<String , Object> model = new HashMap<>();
+        ArrayList<Post> posts = Post.getAll();
+        model.put("posts", posts);
+        return new ModelAndView(model, "allPosts.hbs");
+    }, new HandlebarsTemplateEngine());
+
         //get: show a form to update a post
 
         //post: process a form to update a post
