@@ -47,5 +47,12 @@ public class Post {
     public void update(String content) {
         this.content = content;
     }
+
+    public void deletePost(){
+        instances.remove(id-1); //same reason
+        for(Post thisPost: instances){
+            thisPost.id = instances.indexOf(thisPost)+1;
+        }
+    }
 }
 
