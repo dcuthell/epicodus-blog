@@ -13,7 +13,7 @@ public class App {
         //get : show new post form
     get("/posts/new", (req, res) -> {
         Map<String, Object> model = new HashMap<>();
-        return new ModelAndView(model, "newpost-form.hbs");
+        return new ModelAndView(model, "post-form.hbs");
     }, new HandlebarsTemplateEngine());
         //post: process new post form
     get("/", (req, res) -> {
@@ -48,7 +48,14 @@ public class App {
         return new ModelAndView(model, "allPosts.hbs");
     }, new HandlebarsTemplateEngine());
 
-        //get: show a form to update a post
+    //get: show a form to update a post
+    get("/posts/:id/update", (req, res) -> {
+        Map<String, Object> model = new HashMap<>();
+        int idOfPostToEdit = Integer.parseInt(req.params("id"));
+        Post editPost = Post.findById(idOfPostToEdit);
+        model.put("editPost", editPost);
+        return new ModelAndView(model, "post-form.hbs");
+    }, new HandlebarsTemplateEngine());
 
         //post: process a form to update a post
 

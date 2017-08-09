@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Post {
 
-    private final String content;
+    private String content;
     private static ArrayList<Post> instances = new ArrayList<>(); // I’m new. When do I get created?
     private boolean published;
     private LocalDateTime createdAt;
@@ -31,7 +31,7 @@ public class Post {
     public static void clearAllPosts(){
         instances.clear();
     }
-    public boolean getPublised(){
+    public boolean getPublished(){
         return  this.published;
     }
     public LocalDateTime getCreatedAt() {
@@ -44,5 +44,8 @@ public class Post {
         return instances.get(id-1); //why minus 1? See if you can figure it out.
     }
 
+    public void update(String content) {
+        this.content = content;
+    }
 }
 

@@ -32,10 +32,14 @@
 ehthumbs.db
 Thumbs.db
 
-# Java and Gradle #
+# Java and Gradle and IntelliJ#
 ############
 build/
 .gradle/
 Gradlew
 Gradlew.bat
 settings.gradle
+.idea/
+gradle/
+gradlew*
+
